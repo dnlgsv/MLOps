@@ -1,2 +1,2 @@
 # MLOps
-Advanced MLOps course
+Advanced MLOps course. Each homework task has its folder
