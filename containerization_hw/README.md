@@ -27,3 +27,20 @@ If a service can run without privileges, use a non-root user
 Use variables/arguments to avoid hard coding
 Use Volume for any mutable and/or user-serviceable parts of your image
 Correctly create permissions on mounted data via volume
+
+Instructions for Docker:
+You should be located in the folder "containerazation_hw"
+1. To buld a docker image:
+docker build -t star . # -t is used for giving a name to docker image
+2. To run docker container:
+docker run -it --rm -v $(pwd)/data:/Starspace/data star 
+
+After this steps file modelSaveFile.tsv would be save into data directory.
+
+Some usefull commands:
+docker ps #Show working containers
+docker stop <the-container-id> #stop working containers
+docker rm <the-container-id> #remove working containers
+docker images ls# To see exesting images
+or by one command:
+docker rm -f <the-container-id>
