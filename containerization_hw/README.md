@@ -31,7 +31,7 @@ Correctly create permissions on mounted data via volume
 Instructions for Docker:
 You should be located in the folder "containerazation_hw"
 1. To buld a docker image:
-docker build -t star . # -t is used for giving a name to docker image
+docker build -t star --build-arg USER_ID=$(id -u) --build-arg GROUP_ID=$(id -g) . # -t is used for giving a name to docker image
 2. To run docker container:
 docker run -it --rm -v $(pwd)/data:/Starspace/data star 
 
