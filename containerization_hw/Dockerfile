@@ -1,6 +1,8 @@
 FROM ubuntu:21.04
+
 LABEL maintainer="danilgusev9639@gmail.com"
 ENV ADMIN="Daniil Gusev"
+
 FROM python:3.8
 RUN  apt-get update \ 
   && /usr/local/bin/python -m pip install --upgrade pip \
@@ -15,4 +17,12 @@ RUN git clone https://github.com/facebookresearch/Starspace.git
 WORKDIR /Starspace
 COPY . .
 RUN make
+
+ARG USER_ID
+ARG GROUP_ID
+
+RUN addgroup --gid $GROUP_ID user
+RUN adduser --disabled-password --gecos '' --uid $USER_ID --gid $GROUP_ID user
+USER user
+
 CMD ./starspace train -trainFile data/starspace_input_file.txt -model data/modelSaveFile
