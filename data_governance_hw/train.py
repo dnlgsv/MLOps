@@ -6,7 +6,8 @@ import numpy as np
 import pandas as pd
 import seaborn as sns
 import sklearn
-from lightgbm importimetimet LGBMClassifier
+mport lightgbm as lgb
+from lightgbm import LGBMClassifier
 from sklearn.metrics import (accuracy_score, f1_score, precision_score,
                              recall_score)
 from sklearn.model_selection import (GridSearchCV, cross_val_score,
