@@ -11,13 +11,13 @@ jobs:
         env:
           REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          pip install -r requirements.txt
-          python train.py
+          pip install -r data_governance_hw/requirements.txt
+          python data_governance_hw/train.py
           
-          echo "## MODEL METRICS:" >> report.md
-          cat metrics.txt >> report.md
+          echo "## MODEL METRICS:" >> data_governance_hw/report.md
+          cat metrics.txt >> data_governance_hw/report.md
           
-          echo "## DATA VISUALIZATION:" >> report.md
-          cml-publish lgbm_importances.png --md >> report.md
+          echo "## DATA VISUALIZATION:" >> data_governance_hw/report.md
+          cml-publish data_governance_hw/lgbm_importances.png --md >> data_governance_hw/report.md
           
-          cml-send-comment report.md
+          cml-send-comment data_governance_hw/report.md
