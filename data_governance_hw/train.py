@@ -6,7 +6,7 @@ import numpy as np
 import pandas as pd
 import seaborn as sns
 import sklearn
-from lightgbm import LGBMClassifier
+from lightgbm importimetimet LGBMClassifier
 from sklearn.metrics import (accuracy_score, f1_score, precision_score,
                              recall_score)
 from sklearn.model_selection import (GridSearchCV, cross_val_score,
@@ -37,7 +37,7 @@ def get_lgbm_score(model, y_true, X):
     return Accuracy, F1_score, Precision, Recall
 
 # Load in the data
-df = pd.read_csv("data/wine_quality.csv")
+df = pd.read_csv("./data/wine_quality.csv")
 
 # Split into train and test sections
 y = df.pop("quality")
