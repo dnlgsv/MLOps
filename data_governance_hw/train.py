@@ -6,7 +6,6 @@ import numpy as np
 import pandas as pd
 import seaborn as sns
 import sklearn
-mport lightgbm as lgb
 from lightgbm import LGBMClassifier
 from sklearn.metrics import (accuracy_score, f1_score, precision_score,
                              recall_score)
