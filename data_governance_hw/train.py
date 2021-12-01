@@ -104,4 +104,4 @@ sns.barplot(x="Value", y="Feature", data=feature_imp.sort_values(by="Value", asc
 plt.title('LightGBM Features (avg over folds)')
 plt.tight_layout()
 plt.show()
-plt.savefig('lgbm_importances.png', dpi=120)
+plt.savefig('data_governance_hw/lgbm_importances.png', dpi=120)
