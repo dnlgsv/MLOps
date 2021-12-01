@@ -37,7 +37,7 @@ def get_lgbm_score(model, y_true, X):
     return Accuracy, F1_score, Precision, Recall
 
 # Load in the data
-df = pd.read_csv("../data/wine_quality.csv")
+df = pd.read_csv("~/data_governance_hw/data/wine_quality.csv")
 
 # Split into train and test sections
 y = df.pop("quality")
