@@ -7,7 +7,7 @@ jobs:
       - uses: actions/checkout@v2
       - uses: actions/setup-python@v2
       - uses: iterative/setup-cml@v1
-      - name: Train model
+      - name: Install requirements
         env:
           REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
@@ -18,7 +18,7 @@ jobs:
           black data_governance_hw/train.py
       - name: Run Pylint
         run: |
-          python data_governance_hw/lint.py --path data_governance_hw --threshold 5
+          python data_governance_hw/lint.py --path data_governance_hw/train.py --threshold 5
       - name: Run pipline
         run: |
           python data_governance_hw/train.py

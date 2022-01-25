@@ -12,7 +12,7 @@ parser.add_argument('-p',
                     help='path to directory you want to run pylint | '
                          'Default: %(default)s | '
                          'Type: %(type)s ',
-                    default='data_governance_hw',
+                    default='data_governance_hw/train.py',
                     type=str)
 
 parser.add_argument('-t',
