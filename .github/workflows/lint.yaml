@@ -16,7 +16,7 @@ jobs:
     - name: Install Requirements
       run: |
         python -m pip install --upgrade pip
-        pip install pylint
+        pip install -r data_governance_hw/requirements.txt
     - name: Run Pylint
       run: |
         python data_governance_hw/lint.py --path data_governance_hw --threshold 2

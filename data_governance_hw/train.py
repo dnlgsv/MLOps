@@ -7,7 +7,7 @@ import pandas as pd
 import seaborn as sns
 import sklearn
 from lightgbm import LGBMClassifier
-from sklearn import metrics 
+from sklearn import metrics
 from sklearn.model_selection import (GridSearchCV, cross_val_score,
                                      train_test_split)
 
