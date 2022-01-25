@@ -13,7 +13,7 @@ jobs:
         run: |
           pip install -r data_governance_hw/requirements.txt
           python data_governance_hw/train.py
-          dvc repro
+
           echo "## MODEL METRICS:" >> data_governance_hw/report.md
           cat metrics.txt >> data_governance_hw/report.md
           
