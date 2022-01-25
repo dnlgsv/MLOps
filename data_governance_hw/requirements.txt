@@ -1,4 +1,5 @@
 pylint
+black
 pandas
 sklearn
 matplotlib
