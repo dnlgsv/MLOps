@@ -1,0 +1,23 @@
+name: model_wine_quality_classification
+on: [push]
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-python@v2
+      - uses: iterative/setup-cml@v1
+      - name: Train model
+        env:
+          REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          pip install -r data_governance_hw/requirements.txt
+          python data_governance_hw/train.py
+
+          echo "## MODEL METRICS:" >> data_governance_hw/report.md
+          cat metrics.txt >> data_governance_hw/report.md
+          
+          echo "## DATA VISUALIZATION:" >> data_governance_hw/report.md
+          cml-publish data_governance_hw/lgbm_importances.png --md >> data_governance_hw/report.md
+          
+          cml-send-comment data_governance_hw/report.md

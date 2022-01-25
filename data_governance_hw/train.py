@@ -37,7 +37,7 @@ def get_lgbm_score(model, y_true, X):
     return Accuracy, F1_score, Precision, Recall
 
 # Load in the data
-df = pd.read_csv("data/wine_quality.csv")
+df = pd.read_csv("data_governance_hw/data/wine_quality.csv")
 
 # Split into train and test sections
 y = df.pop("quality")
@@ -58,7 +58,6 @@ print('test score:')
 get_lgbm_score(clf, y_test, X_test)
 
 
-%%time
 param_test = {
  'class_weight': ['balanced'],
  'num_leaves': [i for i in range(5, 20, 2)],
@@ -96,7 +95,7 @@ df_feature_importance = (
     })
     .sort_values('importance', ascending=False)
 )
-df_feature_importance
+#df_feature_importance
 
 feature_imp = pd.DataFrame(sorted(zip(clf.feature_importances_,X_train.columns)), columns=['Value','Feature'])
 
@@ -104,5 +103,5 @@ plt.figure(figsize=(12, 5))
 sns.barplot(x="Value", y="Feature", data=feature_imp.sort_values(by="Value", ascending=False))
 plt.title('LightGBM Features (avg over folds)')
 plt.tight_layout()
-plt.show();
-plt.savefig('lgbm_importances.png', dpi=120)
+plt.show()
+plt.savefig('data_governance_hw/lgbm_importances.png', dpi=120)
