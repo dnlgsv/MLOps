@@ -19,7 +19,10 @@ jobs:
       - name: Run Pylint
         run: |
           python data_governance_hw/lint.py --path data_governance_hw/train.py --threshold 7
-      - name: Run pipline
+      - name: Run Pytest
+        run: |
+          pytest data_governance_hw/test_project.py
+      - name: Run Model
         run: |
           python data_governance_hw/train.py
           echo "## MODEL METRICS:" >> data_governance_hw/report.md
