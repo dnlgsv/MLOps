@@ -23,14 +23,14 @@ jobs:
           black data_governance_hw/train.py
       - name: Run Pylint
         run: |
-          python data_governance_hw/lint.py --path data_governance_hw/train.py --threshold 5
-      - name: Run pipline
-        run: |
-          python data_governance_hw/train.py
-          echo "## MODEL METRICS:" >> data_governance_hw/report.md
-          cat metrics.txt >> data_governance_hw/report.md
+          python data_governance_hw/lint.py --path data_governance_hw/train.py --threshold 7
+#       - name: Run pipline
+#         run: |
+#           python data_governance_hw/train.py
+#           echo "## MODEL METRICS:" >> data_governance_hw/report.md
+#           cat metrics.txt >> data_governance_hw/report.md
           
-          echo "## DATA VISUALIZATION:" >> data_governance_hw/report.md
-          cml-publish data_governance_hw/lgbm_importances.png --md >> data_governance_hw/report.md
+#           echo "## DATA VISUALIZATION:" >> data_governance_hw/report.md
+#           cml-publish data_governance_hw/lgbm_importances.png --md >> data_governance_hw/report.md
           
-          cml-send-comment data_governance_hw/report.md
+#           cml-send-comment data_governance_hw/report.md
