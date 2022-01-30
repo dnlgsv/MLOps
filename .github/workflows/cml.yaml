@@ -5,7 +5,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python-version: ["3.7", "3.8", "3.9"]
+        python-version: ["3.7"]
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-python@v2
@@ -24,13 +24,13 @@ jobs:
       - name: Run Pylint
         run: |
           python data_governance_hw/lint.py --path data_governance_hw/train.py --threshold 7
-#       - name: Run pipline
-#         run: |
-#           python data_governance_hw/train.py
-#           echo "## MODEL METRICS:" >> data_governance_hw/report.md
-#           cat metrics.txt >> data_governance_hw/report.md
+      - name: Run pipline
+        run: |
+          python data_governance_hw/train.py
+          echo "## MODEL METRICS:" >> data_governance_hw/report.md
+          cat metrics.txt >> data_governance_hw/report.md
           
-#           echo "## DATA VISUALIZATION:" >> data_governance_hw/report.md
-#           cml-publish data_governance_hw/lgbm_importances.png --md >> data_governance_hw/report.md
+          echo "## DATA VISUALIZATION:" >> data_governance_hw/report.md
+          cml-publish data_governance_hw/lgbm_importances.png --md >> data_governance_hw/report.md
           
-#           cml-send-comment data_governance_hw/report.md
+          cml-send-comment data_governance_hw/report.md
