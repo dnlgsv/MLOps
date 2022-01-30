@@ -28,6 +28,7 @@ jobs:
           pytest data_governance_hw/test_project.py
       - name: Run Model
         run: |
+          dvc remote add myremote -d s3:://mlops-epam-course 
           dvc pull
           dvc repro
           dvc metrics diff --show-md master > report.md
