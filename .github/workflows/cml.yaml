@@ -23,13 +23,15 @@ jobs:
       - name: Run Pylint
         run: |
           python data_governance_hw/lint.py --path data_governance_hw/train.py --threshold 7
+      - name: Run DVC
+        run: |
+          dvc remote add myremote -d s3:://mlops-epam-course 
+          dvc pull
       - name: Run Pytest
         run: |
           pytest data_governance_hw/test_project.py
       - name: Run Model
         run: |
-          dvc remote add myremote -d s3:://mlops-epam-course 
-          dvc pull
           dvc repro
           dvc metrics diff --show-md master > report.md
           # python data_governance_hw/train.py
