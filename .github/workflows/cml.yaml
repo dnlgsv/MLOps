@@ -28,6 +28,7 @@ jobs:
           pytest data_governance_hw/test_project.py
       - name: Run Model
         run: |
+          dvc pull
           python data_governance_hw/train.py
           echo "## MODEL METRICS:" >> data_governance_hw/report.md
           cat metrics.txt >> data_governance_hw/report.md
