@@ -8,13 +8,12 @@ import seaborn as sns
 import sklearn
 from lightgbm import LGBMClassifier
 from sklearn import metrics
-from sklearn.model_selection import (GridSearchCV, cross_val_score,
+from sklearn.model_selection import (GridSearchCV, 
+                                     cross_val_score,
                                      train_test_split)
 
 warnings.filterwarnings("ignore")
 
-print("Версия LightGBM      : ", lgb.__version__)
-print("Версия Scikit-Learn  : ", sklearn.__version__)
 SEED = 42
 
 ################################
@@ -32,7 +31,6 @@ def get_lgbm_score(model, y_true, x_array):
     print('F1_score', round(f1_score, 2))
     print('Precision', round(precision, 2))
     print('Recall', round(recall, 2))   
-    print()
     return accuracy, f1_score, precision, recall
 
 # Load in the data
