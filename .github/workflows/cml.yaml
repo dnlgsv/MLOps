@@ -1,7 +1,7 @@
 name: model_wine_quality_classification
 on: [push]
 jobs:
-  build:
+  run:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -29,7 +29,9 @@ jobs:
       - name: Run Model
         run: |
           dvc pull
-          python data_governance_hw/train.py
+          dvc repro
+          dvc metrics diff --show-md master > report.md
+          # python data_governance_hw/train.py
           echo "## MODEL METRICS:" >> data_governance_hw/report.md
           cat metrics.txt >> data_governance_hw/report.md
           
