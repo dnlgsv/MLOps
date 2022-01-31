@@ -28,7 +28,6 @@ jobs:
           python data_governance_hw/lint.py --path data_governance_hw/train.py --threshold 7
       - name: Run DVC
         run: |
-          dvc remote add myremote -d s3:://mlops-epam-course 
           dvc pull data_governance_hw/data/wine_quality.csv.dvc
       - name: Run Pytest
         run: |
