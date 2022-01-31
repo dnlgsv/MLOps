@@ -29,7 +29,7 @@ jobs:
       - name: Run DVC
         run: |
           dvc remote add myremote -d s3:://mlops-epam-course 
-          dvc pull data_governance_hw/data/wine_quality.csv
+          dvc pull data_governance_hw/data/wine_quality.csv.dvc
       - name: Run Pytest
         run: |
           pytest data_governance_hw/test_project.py
