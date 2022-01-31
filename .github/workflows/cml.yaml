@@ -7,13 +7,16 @@ jobs:
       - uses: actions/checkout@v2
       - uses: actions/setup-python@v2
       - uses: iterative/setup-cml@v1
-      - name: Install requirements
-        env:
-          REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Configure my AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
           AWS_S3_BUCKET: ${{ secrets.AWS_S3_BUCKET }}
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_REGION: 'us-east-2'
+      - name: Install requirements
+        env:
+          REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           python -m pip install --upgrade pip
           pip install -r data_governance_hw/requirements.txt
@@ -33,6 +36,7 @@ jobs:
       - name: Run Model
         run: |
           dvc repro
+          git fetch --prune
           dvc metrics diff --show-md master > report.md
           # python data_governance_hw/train.py
           echo "## MODEL METRICS:" >> data_governance_hw/report.md
