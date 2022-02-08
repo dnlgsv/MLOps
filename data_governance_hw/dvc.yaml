@@ -1,0 +1,11 @@
+stages:
+  train:
+    cmd: python data_governance_hw/train.py
+    deps:
+    - python data_governance_hw/train.py
+    - data_governance_hw/data/wine_quality.csv
+    outs:
+    - data_governance_hw/report.txt
+    metrics:
+    - metrics.json:
+        cache: false
