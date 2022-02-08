@@ -28,7 +28,7 @@ jobs:
           python data_governance_hw/lint.py --path data_governance_hw/train.py --threshold 7
       - name: Run DVC
         run: |
-          dvc pull data_governance_hw/data/wine_quality.csv.dvc
+          dvc checkout
       - name: Run Pytest
         run: |
           pytest data_governance_hw/test_project.py
